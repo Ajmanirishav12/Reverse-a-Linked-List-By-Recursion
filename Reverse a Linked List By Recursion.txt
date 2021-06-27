@@ -1,17 +1,17 @@
 struct Node* rev(struct Node *p,struct Node *prev,struct Node *cur)
 {
 struct Node *temp;
-if(p==NULL)
+if(p==NULL)          // Base Case for Rev function (When p becomes NULL,prev pointer contains the new head of the Reversed  Linked List So we Return prev)
 return prev;
 else
 {
 cur = p->next;
-p->next = prev;
+p->next = prev;       
 prev=p;
 p=cur;
 }
-temp = rev(p,prev,cur);
-return temp;
+temp = rev(p,prev,cur);    
+return temp;    
 }
 struct Node* reverseList(struct Node *head)
     {
@@ -19,6 +19,6 @@ struct Node* reverseList(struct Node *head)
     prev = NULL;
     curr = head;
     p=head;
-  struct Node *final_head =  rev(p,prev,curr);
-    return final_head;
+  struct Node *final_head =  rev(p,prev,curr);  // Calling rev function which returns the new head of the reversed Linked List.
+    return final_head;   // return the new head to the driver function.
     }
