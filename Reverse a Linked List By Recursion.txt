@@ -1,0 +1,24 @@
+struct Node* rev(struct Node *p,struct Node *prev,struct Node *cur)
+{
+struct Node *temp;
+if(p==NULL)
+return prev;
+else
+{
+cur = p->next;
+p->next = prev;
+prev=p;
+p=cur;
+}
+temp = rev(p,prev,cur);
+return temp;
+}
+struct Node* reverseList(struct Node *head)
+    {
+    struct Node *prev,*curr,*p;
+    prev = NULL;
+    curr = head;
+    p=head;
+  struct Node *final_head =  rev(p,prev,curr);
+    return final_head;
+    }
